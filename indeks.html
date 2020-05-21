@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Супер мега крутая игра</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+	<h1 class="text">Собери всех Зеницу за 5 секунд</h1>
+	<div style="background-image: url(Зеницу.jpg); background-size: 100% 100%; width: 150px; height: 150px; position: absolute; left: 500px; top: 400px;" class="rounded-circle zenitsu">
+	</div>
+	<div style="background-image: url(Зеницу0.jpg); background-size: 100% 100%; width: 200px; height: 150px; position: absolute; left: 100px; top: 500px;" class="rounded-circle zenitsu">
+	</div>
+	<div style="background-image: url(Зеницу1.jpg); background-size: 100% 100%; width: 200px; height: 150px; position: absolute; left: 800px; top: 100px;" class="rounded-circle zenitsu">
+	</div>
+	<div style="background-image: url(Зеницу2.jpg); background-size: 100% 100%; width: 150px; height: 150px; position: absolute; left: 1000px; top: 400px;" class="rounded-circle zenitsu">
+	</div>
+	<div style="background-image: url(Зеницу3.jpg); background-size: 100% 100%; width: 150px; height: 150px; position: absolute; left: 250px; top: 250px;" class="rounded-circle zenitsu">
+	</div>
+	<div style="background-image: url(Зеницу4.jpg); background-size: 100% 100%; width: 150px; height: 150px; position: absolute; left: 50px; top: 80px;" class="rounded-circle zenitsu">
+	</div>
+	<div style="background-image: url(Зеницу5.jpg); background-size: 100% 100%; width: 150px; height: 150px; position: absolute; left: 1100px; top: 40px;" class="rounded-circle zenitsu">
+	</div>
+	<div style="background-image: url(Зеницу6.jpg); background-size: 100% 100%; width: 150px; height: 150px; position: absolute; left: 500px; top: 100px;" class="rounded-circle zenitsu">
+	</div>
+	<div style="display: none;" class="mx-auto winner">
+		<img src="Незуко.jpg">
+		<h1>YOU WIN</h1>
+	</div>
+	<div style="height: 700px; background-image: url(Иноске.jpg); background-size: 100% 100%; display: none;" class="mx-auto col-12 lox">
+		<h1>YOU LOX</h1>
+	</div>	
+	<script type="text/javascript">
+		let zenytsu = document.querySelectorAll('.zenitsu');
+		let win = document.querySelector('.winner');
+		let lose = document.querySelector('.lox');
+		let text = document.querySelector('.text');
+		let score = 0;
+		for (let i=0; i<8; i = i+1) {
+			zenytsu[i].onclick = function(){
+				zenytsu[i].style.display = "none";
+				score = score + 1;
+			}
+		}
+		let hide = function() {
+			for (let i=0; i<8; i = i+1) {
+				zenytsu[i].style.display = "none";
+				text.style.display = "none";
+				if(score < 5) {
+					lose.style.display = "block";
+				}
+				if(score > 5) {
+					win.style.display = "block";
+				}				
+			}
+		}
+		setTimeout(hide, 5000);				
+	</script>	
+</body>
+</html>
